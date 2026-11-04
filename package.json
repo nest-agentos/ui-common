@@ -1,5 +1,5 @@
 {
-  "name": "@itookit/ui-common",
+  "name": "@nestos/ui-common",
   "version": "0.1.0",
   "description": "Dependency-free native DOM navigation and content title bars.",
   "type": "module",

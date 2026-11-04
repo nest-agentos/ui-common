@@ -1,12 +1,12 @@
-# @itookit/ui-common
+# @nestos/ui-common
 
 Dependency-free native DOM navigation, dialogs and browser utilities for browsers and WebViews. Hosts own routing, permissions, persistence and window management.
 
 ## Usage
 
 ```ts
-import {contentTitleBar, navigationButton} from '@itookit/ui-common';
-import '@itookit/ui-common/navigation.css';
+import {contentTitleBar, navigationButton} from '@nestos/ui-common';
+import '@nestos/ui-common/navigation.css';
 
 const back = navigationButton({icon: backIcon, label: 'Back', run: () => navigateBack()});
 const bar = contentTitleBar({leading: [back]});
@@ -27,7 +27,7 @@ Supply original input and menu elements using `title`, `actions`, `menu` and `me
 
 No runtime dependencies. Application editor contracts and business forms belong in the host adapter. Build and publish configuration includes ESM, CommonJS, TypeScript declarations and CSS.
 
-`Modal`, `Toast` and `showConfirmDialog` share `@itookit/ui-common/components.css`. Dialog titles, labels, toast messages and confirmation text are plain text; Modal content HTML is trusted host markup. Labels can be supplied without application i18n dependencies. Async confirmation can return false to retain its original fields.
+`Modal`, `Toast` and `showConfirmDialog` share `@nestos/ui-common/components.css`. Dialog titles, labels, toast messages and confirmation text are plain text; Modal content HTML is trusted host markup. Labels can be supplied without application i18n dependencies. Async confirmation can return false to retain its original fields.
 
 `copyText` supports insecure-context clipboard fallback. `setTimePresentation(time, timestamp, fallback, locale?)` accepts a caller locale and clears stale timestamp attributes for missing dates. Generic menu types contain no application data.
 

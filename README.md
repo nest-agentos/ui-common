@@ -32,3 +32,7 @@ No runtime dependencies. Application editor contracts and business forms belong 
 `copyText` supports insecure-context clipboard fallback. `setTimePresentation(time, timestamp, fallback, locale?)` accepts a caller locale and clears stale timestamp attributes for missing dates. Generic menu types contain no application data.
 
 Settings lifecycle helpers (`SettingsBaseEditor`, `SettingsAutoSave`, `requestSettingsSave`, `captureForm`, `restoreForm`) share save ownership and in-memory draft recovery. Hosts inject presentation and optional rename/metadata ports. Failed saves prevent closing and preserve input; successful repeated destruction releases subscriptions once. Recovery validates the whole form structure before applying values; snapshots may contain secrets and must never be persisted or logged.
+
+`OutlineView` consumes `{id, label, level?}` entries and a `select(id)` callback. It owns bounded scrolling, level-three disclosure, mouse hover and touch/keyboard controls. Pass translated labels and optional safe diagnostics; entry IDs and names never enter diagnostics. Import `navigation.css` with the JavaScript API.
+
+`mountOutlinePopup(trigger, {read, select, ...labels})` shares the same view and releases document listeners and late reads on cleanup. `WindowOutline.register(id, name, reveal)` returns an idempotent lease: names are optional, duplicate names are allowed, and replacing a lease preserves the new registration. Hosts own identity, business naming and expansion. `clear()` releases all references.

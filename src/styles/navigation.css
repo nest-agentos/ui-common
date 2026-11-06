@@ -41,3 +41,21 @@
     .ui-content-titlebar__custom-title { overflow: hidden; }
     .ui-content-titlebar.ui-content-titlebar input.ui-content-titlebar__custom-title { font-size: 16px; }
 }
+
+.ui-outline { max-height: min(60dvh, 32rem); overflow: auto; overscroll-behavior: contain; min-width: 12rem; }
+.ui-outline__row { display: flex; align-items: center; }
+.ui-outline__link, .ui-outline__toggle { min-height: 44px; border: 0; background: transparent; color: inherit; cursor: pointer; font: inherit; }
+.ui-outline__link { flex: 1; min-width: 0; text-align: start; padding: 8px 12px; overflow-wrap: anywhere; }
+.ui-outline__toggle { min-width: 44px; flex: none; }
+.ui-outline__children { padding-inline-start: 14px; }
+.ui-outline__children[hidden] { display: none; }
+.ui-outline button:focus-visible { outline: 2px solid var(--vscode-focusBorder, #2563eb); outline-offset: -2px; }
+.ui-outline__toggle[aria-expanded="true"] { transform: rotate(90deg); }
+.ui-outline__link[aria-current="location"] { background: var(--vscode-list-activeSelectionBackground, #4263eb22); }
+.ui-outline-popup { position: fixed; z-index: 1200; width: min(24rem, calc(100vw - 16px)); max-height: 75dvh; overflow: auto; padding: 8px; border: 1px solid var(--vscode-panel-border, #8886); border-radius: 8px; background: var(--vscode-editor-background, #fff); color: var(--vscode-editor-foreground, #222); box-shadow: 0 4px 20px #0003; }
+.ui-outline-popup[hidden] { display: none; }
+@media (prefers-color-scheme: dark) { .ui-outline-popup { background: var(--vscode-editor-background, #252526); color: var(--vscode-editor-foreground, #ddd); } }
+
+.ui-outline__item { min-width: 0; }
+.ui-outline__status:empty, .ui-outline-popup > p:empty { display: none; }
+[data-theme="dark"] .ui-outline-popup { background: var(--vscode-editor-background, #252526); color: var(--vscode-editor-foreground, #ddd); }

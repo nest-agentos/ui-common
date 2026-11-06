@@ -10,3 +10,5 @@ export {SettingsBaseEditor} from './settings-base-editor';
 export {SettingsAutoSave, SettingsValidationError, requestSettingsSave, type SettingsSave} from './settings-autosave';
 export type {SettingsTranslate, SettingsHostContext, SettingsPresentation, SettingsResourcePort, SettingsEditorOptions, SettingsEditor, Heading, UnifiedSearchResult, CollapseExpandResult, EditorEventMap, EditorEvent, EditorEventCallback} from './settings-contracts';
 export {captureForm, restoreForm} from './settings-form-recovery';
+export {OutlineView, WindowOutline, type OutlineItem, type OutlineOptions, type OutlineDiagnostic} from './outline';
+export {mountOutlinePopup} from './outline-popup';

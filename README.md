@@ -23,7 +23,7 @@ bar.destroy();
 - `retainTitleBarNodes`: restore supplied controls to their original slots after adoption.
 - `installResponsiveActions`: move original controls between toolbar and overflow, preserving event bindings.
 
-Supply original input and menu elements using `title`, `actions`, `menu` and `menuBody`. Secondary actions move into the existing menu on mobile; no business action is invoked by layout updates. Theme through the `--ui-nav-*` CSS variables. A title bar does not decide application navigation visibility.
+Supply original input and menu elements using `title`, `actions`, `menu` and `menuBody`. Secondary actions move into the existing menu on mobile; no business action is invoked by layout updates. Theme through the `--ui-nav-*` CSS variables. A title bar does not decide application navigation visibility. Editable supplied titles expand across the title-bar row while focused at widths up to 768px, temporarily hiding adjacent controls and context. Blur restores the same controls; desktop layout and rename/save callbacks remain owned by the host.
 
 No runtime dependencies. Application editor contracts and business forms belong in the host adapter. Build and publish configuration includes ESM, CommonJS, TypeScript declarations and CSS.
 

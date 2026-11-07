@@ -31,6 +31,7 @@ export function contentTitleBar(options: ContentTitleBarOptions = {}) {
     actions.append(...(options.actions ?? []), ...(options.trailing ?? []), ...(options.menu ? [options.menu] : []));
     element.append(...(options.leading ?? []), ...(options.back ? [options.back] : []), ...(options.status ? [options.status] : []), identity, actions);
     const releaseOverflow = titleBarOverflow(options.actions ?? [], options.menuBody, actions);
+    const releaseTitleFocus = editableTitleFocus(element, options);
     return {element, identity, actions, update(state: ContentTitleBarState) {
         title.textContent = state.title; title.title = state.title;
         if (options.title && !options.editable) options.title.title = state.title;
@@ -39,7 +40,15 @@ export function contentTitleBar(options: ContentTitleBarOptions = {}) {
         indicator.hidden = !state.dirty; indicator.dataset.state = 'dirty';
         indicator.title = options.statePresentation?.dirtyLabel ?? '';
         indicator.setAttribute('aria-label', indicator.title);
-    }, destroy() {releaseOverflow(); options.title?.classList.remove('ui-content-titlebar__custom-title'); options.modeToggle?.classList.remove('ui-content-titlebar__mode-toggle'); element.remove();}};
+    }, destroy() {releaseTitleFocus(); releaseOverflow(); options.title?.classList.remove('ui-content-titlebar__custom-title'); options.modeToggle?.classList.remove('ui-content-titlebar__mode-toggle'); element.remove();}};
+}
+function editableTitleFocus(element: HTMLElement, options: ContentTitleBarOptions): () => void {
+    const title = options.title;
+    if (!title || !options.editable) return () => {};
+    const focus = () => {element.dataset.titleEditing = 'true';};
+    const blur = () => {delete element.dataset.titleEditing;};
+    title.addEventListener('focusin', focus); title.addEventListener('focusout', blur);
+    return () => {title.removeEventListener('focusin', focus); title.removeEventListener('focusout', blur); blur();};
 }
 function titleBarOverflow(items: HTMLElement[], menu: HTMLElement | undefined, actions: HTMLElement): () => void {
     if (!menu || !items.length) return () => {};

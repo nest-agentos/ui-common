@@ -40,6 +40,10 @@
     .ui-content-titlebar__actions { gap: 0; }
     .ui-content-titlebar__custom-title { overflow: hidden; }
     .ui-content-titlebar.ui-content-titlebar input.ui-content-titlebar__custom-title { font-size: 16px; }
+    .ui-content-titlebar[data-title-editing=true] > :not(.ui-content-titlebar__identity),
+    .ui-content-titlebar[data-title-editing=true] .ui-content-titlebar__identity > :not(.ui-content-titlebar__custom-title) { display: none; }
+    .ui-content-titlebar[data-title-editing=true] .ui-content-titlebar__identity { flex-basis: 100%; gap: 0; }
+    .ui-content-titlebar[data-title-editing=true] .ui-content-titlebar__custom-title { width: 100%; box-sizing: border-box; }
 }
 
 .ui-outline { max-height: min(60dvh, 32rem); overflow: auto; overscroll-behavior: contain; min-width: 12rem; }

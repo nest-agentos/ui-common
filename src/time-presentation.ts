@@ -1,4 +1,4 @@
-
+import {formatDateTime} from './time-format';
 /** Keep visible dates and machine-readable timestamps consistent across views. */
 export function setTimePresentation(element: HTMLTimeElement, value: number | null | undefined, fallback: string, locale?: string | string[]): void {
     const date = typeof value === 'number' && value > 0 ? new Date(value) : undefined;
@@ -7,6 +7,6 @@ export function setTimePresentation(element: HTMLTimeElement, value: number | nu
         element.removeAttribute('datetime'); element.removeAttribute('title');
         return;
     }
-    element.textContent = new Intl.DateTimeFormat(locale, {dateStyle: 'medium', timeStyle: 'medium'}).format(date);
-    element.dateTime = date.toISOString(); element.title = date.toLocaleString(locale);
+    element.textContent = formatDateTime(date,locale);
+    element.dateTime = date.toISOString(); element.title = element.textContent;
 }

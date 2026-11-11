@@ -5,6 +5,7 @@ export {installResponsiveActions, type ResponsiveActionsOptions} from './respons
 export {Modal, Toast, showConfirmDialog, type ModalOptions, type ToastType} from './components';
 export {copyText} from './clipboard';
 export {setTimePresentation} from './time-presentation';
+export {getDisplayTimeZone,formatDateTime,formatClockTime,formatCalendarDate,localDateTimeInput,parseLocalDateTimeInput} from './time-format';
 export type {MenuItem, ContextMenuBuilder, ContextMenuConfig} from './menu';
 export {SettingsBaseEditor} from './settings-base-editor';
 export {SettingsAutoSave, SettingsValidationError, requestSettingsSave, type SettingsSave} from './settings-autosave';
